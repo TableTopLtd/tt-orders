@@ -11,6 +11,7 @@
 
     <artifactId>order-api</artifactId>
 
+
     <dependencies>
         <dependency>
             <groupId>si.fri.tabletop</groupId>
@@ -34,6 +35,15 @@
             <groupId>si.fri.tabletop</groupId>
             <artifactId>order-models</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee.health</groupId>
+            <artifactId>kumuluzee-health</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee.cors</groupId>
+            <artifactId>kumuluzee-cors</artifactId>
+        </dependency>
+
 
 
     </dependencies>

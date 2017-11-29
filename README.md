@@ -3,7 +3,7 @@
 ## Prerequisites
 
 ```bash
-docker run -d --name tt-places-db -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=place -p 5434:5432 postgres:latest
+docker run -d --name tt-orders-db -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=order -p 5434:5432 postgres:latest
 ```
 
 ## When developing
@@ -73,3 +73,7 @@ docker run --rm --name etcd-browser -p 0.0.0.0:8000:8000 --env ETCD_HOST=10.10.0
 ```
 This should start a server at localhost:8000. If it doesn't see linked repo for full instructions.
    
+   
+## Retrieving health check results
+
+To retrieve health check results simply call `/health` endpoint.
