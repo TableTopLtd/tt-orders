@@ -76,4 +76,4 @@ This should start a server at localhost:8000. If it doesn't see linked repo for 
    
 ## Retrieving health check results
 
-To retrieve health check results simply call `/health` endpoint.
+To retrieve health check results simply call `/health` endpoint. 
