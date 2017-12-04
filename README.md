@@ -1,4 +1,4 @@
-# TableTop Places microservice
+# TableTop Orders microservice
 [![Build Status](https://travis-ci.org/TableTopLtd/tt-orders.svg?branch=master)](https://travis-ci.org/TableTopLtd/tt-orders)
 ## Prerequisites
 
