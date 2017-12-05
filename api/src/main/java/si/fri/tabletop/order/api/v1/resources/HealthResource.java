@@ -1,7 +1,6 @@
 package si.fri.tabletop.order.api.v1.resources;
 
 import com.kumuluz.ee.common.runtime.EeRuntime;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import si.fri.tabletop.order.api.v1.configuration.RestProperties;
 
 import javax.enterprise.context.ApplicationScoped;
