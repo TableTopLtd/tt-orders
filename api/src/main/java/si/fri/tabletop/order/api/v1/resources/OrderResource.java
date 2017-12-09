@@ -49,6 +49,12 @@ public class OrderResource {
         return Response.status(Response.Status.OK).entity(order).build();
     }
 
+    @GET
+    @Path("/check")
+    public Response checkService(){
+        return Response.status(Response.Status.OK).build();
+    }
+
     /*@POST
     public Response createOrder(Order order) {
 
