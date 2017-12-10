@@ -29,8 +29,8 @@ public class HealthResource {
 
     @POST
     @Path("healthy")
-    public Response setHealth(String healthy){
-        restProperties.setHealthy(true);
+    public Response setHealth(Boolean healthy){
+        restProperties.setHealthy(healthy);
         return Response.ok().build();
     }
 }

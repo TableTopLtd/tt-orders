@@ -24,8 +24,10 @@ kumuluzee:
 
   metrics:
    web-instrumentation:
-   - name: orders-endpoint
-   url-pattern: /v1/order/*
+     - name: metricsEndpoint
+       url-pattern: /metrics/*
+     - name: orderendpoint
+       url-pattern: /v1/Order/*
 
 rest-properties:
   healthy: true
