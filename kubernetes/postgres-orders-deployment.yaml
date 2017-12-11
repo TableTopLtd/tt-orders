@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        app: postgres-order
+        app: postgres-orders
     spec:
       containers:
         - image: centos/postgresql-94-centos7
@@ -18,7 +18,7 @@ spec:
             - name: POSTGRESQL_PASSWORD
               value: postgres
             - name: POSTGRESQL_DATABASE
-              value: place
+              value: order
           ports:
           - containerPort: 5431
             protocol: TCP
