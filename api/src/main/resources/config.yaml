@@ -17,6 +17,10 @@ kumuluzee:
     etcd:
       hosts: http://localhost:2379
 
+  discovery:
+    etcd:
+      hosts: http://localhost:2379
+
   health:
     checks:
       data-source-health-check:
