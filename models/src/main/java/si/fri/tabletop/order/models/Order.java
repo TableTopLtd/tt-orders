@@ -11,7 +11,9 @@ import java.util.List;
         {
                 @NamedQuery(name = "Order.getAll", query = "SELECT o FROM orders o"),
                 @NamedQuery(name = "Order.findByPlace", query = "SELECT o FROM orders o WHERE o.placeId = " +
-                        ":placeId")
+                        ":placeId"),
+                @NamedQuery(name = "Order.findByCustomer", query = "SELECT o FROM orders o WHERE o.customerId = " +
+                        ":customerId")
         })
 @UuidGenerator(name = "idGenerator")
 public class Order {
@@ -28,6 +30,9 @@ public class Order {
 
     @Column(name = "place_id")
     private String placeId;
+
+    @Column(name = "customer_id")
+    private String customerId;
 
     // Getters and setters
     public String getId() {
@@ -54,12 +59,15 @@ public class Order {
         this.table = table;
     }
 
-    public String getPlace(){
+    public String getPlaceId(){
         return placeId;
     }
 
-    public void setPlace(String id){
+    public void setPlaceId(String id){
         this.placeId = id;
     }
 
+    public String getCustomerId() { return customerId; }
+
+    public void setCustomerId(String customerId) { this.customerId = customerId; }
 }
