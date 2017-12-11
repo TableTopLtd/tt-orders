@@ -22,6 +22,13 @@ kumuluzee:
       data-source-health-check:
         jndi-name: jdbc/OrdersDS
 
+  metrics:
+   web-instrumentation:
+     - name: metricsEndpoint
+       url-pattern: /metrics/*
+     - name: orderendpoint
+       url-pattern: /v1/Order/*
+
 rest-properties:
   healthy: true
   external-services:

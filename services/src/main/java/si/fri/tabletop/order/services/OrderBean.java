@@ -75,7 +75,7 @@ public class OrderBean {
         return order;
     }
 
-    public Order createPlace(Order order) {
+    public Order createOrder(Order order) {
 
         try {
             beginTx();
@@ -108,9 +108,9 @@ public class OrderBean {
         return order;
     }
 
-    public boolean deletePlace(String placeId) {
+    public boolean deleteOrder(String orderId) {
 
-        Order order = em.find(Order.class, placeId);
+        Order order = em.find(Order.class, orderId);
 
         if (order != null) {
             try {

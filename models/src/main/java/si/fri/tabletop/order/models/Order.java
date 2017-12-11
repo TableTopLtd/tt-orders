@@ -10,6 +10,8 @@ import java.util.List;
 @NamedQueries(value =
         {
                 @NamedQuery(name = "Order.getAll", query = "SELECT o FROM orders o"),
+                @NamedQuery(name = "Order.findByPlace", query = "SELECT o FROM orders o WHERE o.placeId = " +
+                        ":placeId")
         })
 @UuidGenerator(name = "idGenerator")
 public class Order {
@@ -24,6 +26,8 @@ public class Order {
     @Column(name = "table_num")
     private int table;
 
+    @Column(name = "place_id")
+    private String placeId;
 
     // Getters and setters
     public String getId() {
@@ -48,6 +52,14 @@ public class Order {
 
     public void setTable(int table) {
         this.table = table;
+    }
+
+    public String getPlace(){
+        return placeId;
+    }
+
+    public void setPlace(String id){
+        this.placeId = id;
     }
 
 }

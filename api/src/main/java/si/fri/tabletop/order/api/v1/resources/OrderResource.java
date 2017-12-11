@@ -4,6 +4,15 @@ import si.fri.tabletop.order.models.Order;
 import si.fri.tabletop.order.services.OrderBean;
 import si.fri.tabletop.order.services.config.RestProperties;
 
+import org.eclipse.microprofile.metrics.Counter;
+import org.eclipse.microprofile.metrics.Histogram;
+import org.eclipse.microprofile.metrics.Meter;
+import org.eclipse.microprofile.metrics.MetricUnits;
+import org.eclipse.microprofile.metrics.annotation.Gauge;
+import org.eclipse.microprofile.metrics.annotation.Metered;
+import org.eclipse.microprofile.metrics.annotation.Metric;
+import org.eclipse.microprofile.metrics.annotation.Timed;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -28,15 +37,20 @@ public class OrderResource {
     @Inject
     private RestProperties restProperties;
 
+    @Inject
+    @Metric(name = "order_getting_meter")
+    private Meter addMeter;
+
     @GET
     public Response getOrders() {
-
+        addMeter.mark();
         List<Order> orders = orderBean.getOrders(uriInfo);
 
         return Response.ok(orders).build();
     }
 
     @GET
+    @Timed(name = "long_lasting_method")
     @Path("/{orderId}")
     public Response getOrder(@PathParam("orderId") String placeId) {
 
@@ -49,23 +63,37 @@ public class OrderResource {
         return Response.status(Response.Status.OK).entity(order).build();
     }
 
-    /*@POST
+    @GET
+    @Path("/check")
+    public Response checkService(){
+        return Response.status(Response.Status.OK).build();
+    }
+
+    @POST
     public Response createOrder(Order order) {
+        order = orderBean.createOrder(order);
 
-        if (order.get() == null || order.getTitle().isEmpty()) {
-            return Response.status(Response.Status.BAD_REQUEST).build();
+        if (order.getId() != null) {
+            return Response.status(Response.Status.CREATED).entity(order).build();
         } else {
-            place = placesBean.createPlace(place);
-        }
-
-        if (place.getId() != null) {
-            return Response.status(Response.Status.CREATED).entity(place).build();
-        } else {
-            return Response.status(Response.Status.CONFLICT).entity(place).build();
+            return Response.status(Response.Status.CONFLICT).entity(order).build();
         }
     }
 
-    @PUT
+    @DELETE
+    @Path("/{orderId}")
+    public Response deletePlace(@PathParam("orderId") String placeId) {
+
+        boolean deleted = orderBean.deleteOrder(placeId);
+
+        if (deleted) {
+            return Response.status(Response.Status.GONE).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
+    /*@PUT
     @Path("{placeId}")
     public Response putPlace(@PathParam("placeId") String placeId, Place place) {
 
@@ -81,18 +109,7 @@ public class OrderResource {
         }
     }
 
-    @DELETE
-    @Path("{placeId}")
-    public Response deletePlace(@PathParam("placeId") String placeId) {
 
-        boolean deleted = placesBean.deletePlace(placeId);
-
-        if (deleted) {
-            return Response.status(Response.Status.GONE).build();
-        } else {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-    }*/
 
     @GET
     @Path("/config")
@@ -103,6 +120,6 @@ public class OrderResource {
                         "}";
         response = String.format(response, restProperties.isMenuServiceEnabled());
         return Response.ok(response).build();
-    }
+    }*/
 
 }
