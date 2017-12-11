@@ -12,6 +12,12 @@ public class RestProperties {
     @ConfigValue(value = "external-services.menu-service.enabled", watch = true)
     private boolean menuServiceEnabled;
 
+    private boolean healthy;
+
+    public boolean isHealthy() {
+        return healthy;
+    }
+    
     public boolean isMenuServiceEnabled() {
         return menuServiceEnabled;
     }
@@ -19,4 +25,9 @@ public class RestProperties {
     public void setMenuServiceEnabled(boolean menuServiceEnabled) {
         this.menuServiceEnabled = menuServiceEnabled;
     }
+
+    public void setHealthy(boolean healthy) {
+        this.healthy = healthy;
+    }
+
 }

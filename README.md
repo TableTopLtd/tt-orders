@@ -1,9 +1,9 @@
-# TableTop Places microservice
+# TableTop Orders microservice
 [![Build Status](https://travis-ci.org/TableTopLtd/tt-orders.svg?branch=master)](https://travis-ci.org/TableTopLtd/tt-orders)
 ## Prerequisites
 
 ```bash
-docker run -d --name tt-orders-db -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=order -p 5434:5432 postgres:latest
+docker run -d --name tt-orders-db -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=order -p 5431:5432 postgres:latest
 ```
 
 ## When developing

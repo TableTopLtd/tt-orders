@@ -1,5 +1,6 @@
 package si.fri.tabletop.order.api.v1.resources;
 
+import com.kumuluz.ee.logs.cdi.Log;
 import si.fri.tabletop.order.models.Order;
 import si.fri.tabletop.order.services.OrderBean;
 import si.fri.tabletop.order.services.config.RestProperties;
@@ -23,9 +24,10 @@ import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
 @ApplicationScoped
-@Path("/order")
+@Path("/orders")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@Log
 public class OrderResource {
 
     @Context
