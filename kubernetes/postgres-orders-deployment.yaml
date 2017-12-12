@@ -20,5 +20,5 @@ spec:
             - name: POSTGRESQL_DATABASE
               value: order
           ports:
-          - containerPort: 5431
+          - containerPort: 5432
             protocol: TCP

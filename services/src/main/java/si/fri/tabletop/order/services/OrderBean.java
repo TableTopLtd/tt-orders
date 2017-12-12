@@ -88,9 +88,9 @@ public class OrderBean {
         return order;
     }
 
-    public Order putPlace(String placeId, Order order) {
+    public Order putPlace(String orderId, Order order) {
 
-        Order c = em.find(Order.class, placeId);
+        Order c = em.find(Order.class, orderId);
 
         if (c == null) {
             return null;
