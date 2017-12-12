@@ -1,0 +1,7 @@
+kubectl delete deploy orders-deployment
+kubectl delete deploy postgres-orders-deployment
+
+kubectl create -f postgres-orders-deployment.yaml
+kubectl create -f orders-deployment.yaml
+
+kubectl proxy
