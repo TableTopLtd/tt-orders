@@ -54,9 +54,9 @@ public class OrderResource {
     @GET
     @Timed(name = "long_lasting_method")
     @Path("/{orderId}")
-    public Response getOrder(@PathParam("orderId") String placeId) {
+    public Response getOrder(@PathParam("orderId") String orderId) {
 
-        Order order = orderBean.getOrder(placeId);
+        Order order = orderBean.getOrder(orderId);
 
         if (order == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
