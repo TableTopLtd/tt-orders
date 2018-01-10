@@ -112,7 +112,7 @@ public class OrderResource {
     }
 
 
-
+*/
     @GET
     @Path("/config")
     public Response config() {
@@ -122,6 +122,6 @@ public class OrderResource {
                         "}";
         response = String.format(response, restProperties.isMenuServiceEnabled());
         return Response.ok(response).build();
-    }*/
+    }
 
 }
